@@ -39,7 +39,7 @@ function fullName(firstName, lastName) {
 //   generateSentence('Kay', 'coffee', 'the local cafe');
 //   => 'Kay was drinking coffee at the local cafe.'
 function generateSentence(person, beverage, location) {
-  return `${person} was drinking ${beverage} at ${location}`
+  return `${person} was drinking ${beverage} at ${location}.`
 }
 
 // Return the given string with all vowels replced with '*' characters.
@@ -47,19 +47,38 @@ function generateSentence(person, beverage, location) {
 //   censorVowels('javascript');
 //   => 'j*v*scr*pt'
 function censorVowels(string) {
-  let vowels = ["a","e","i","o","u"];
+  const vowels = ["a","e","i","o","u"];
+  let returnStr = ""
+
   for (let i = 0; i < string.length; i++) {
-    if (vowels.) {
-      string[i] = "*"
+    if (vowels.includes(string[i])) {
+      returnStr += "*"
+    } else {
+      returnStr += string[i]
     }
   }
+
+  return returnStr;
 }
 
 // Return the given string in sticky case.
 // Ex.:
 //   stickyCase('hello world');
 //   => 'hElLo wOrLd'
-function stickyCase(string) {}
+function stickyCase(string) {
+  let letters = string.split("");
+  let returnStr = "";
+
+  for (let i = 0; i < letters.length; i ++) {
+    if (i % 2 !== 0) {
+      returnStr += String(letters[i]).toUpperCase();
+    } else {
+      returnStr += letters[i];
+    }
+  }
+
+  return returnStr
+}
 
 // Return the given string in leetspeak. Leetspeak is a modified version of
 // English where characters are replaced by numbers or symbols. For this
@@ -73,7 +92,30 @@ function stickyCase(string) {}
 // Ex.:
 //   leetspeak('javascript');
 //   => 'j4v45cr1p7'
-function leetspeak(string) {}
+function leetspeak(string) {
+  let letters = string.split("");
+  let returnStr = "";
+
+  for (let i = 0; i < letters.length; i++) {
+    if (letters[i] === "a") {
+      returnStr += "4";
+    } else if (letters[i] === "e") {
+      returnStr += "3";
+    } else if (letters[i] === "i") {
+      returnStr += "1";
+    } else if (letters[i] === "o") {
+      returnStr += "0";
+    } else if (letters[i] === "s") {
+      returnStr += "5";
+    } else if (letters[i] === "t") {
+      returnStr += "7";
+    } else {
+      returnStr += letters[i];
+    }
+  }
+
+  return returnStr;
+}
 
 export {
   approximatelyEqual,
