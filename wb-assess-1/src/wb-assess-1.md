@@ -14,7 +14,7 @@
 Which statement is true about JavaScript?
 
 - [x] **A.** JavaScript is case insensitive, so `true` is the same as `True`.
-- [ ] **B.** JavaScript ignores whitespace characters like spaces and newline characters.
+- [x] **B.** JavaScript ignores whitespace characters like spaces and newline characters.
 - [ ] **C.** JavaScript requires you to end all statements with a semicolon (`;`).
 - [ ] **D.** All of the above are true.
 - [ ] **E.** None of the above are true.
@@ -45,9 +45,9 @@ const result = 1 < 100 || 'hello' === 'hi';
 console.log(result);
 ```
 
-- [ ] **A.** `true`
+- [x] **A.** `true`
 - [ ] **B.** `false`
-- [x] **C.** `undefined`
+- [ ] **C.** `undefined`
 - [ ] **D.** N/A because the code has an error
 
 ### A.4. What's the output?
@@ -232,7 +232,7 @@ Functions can be used to create named blocks of code that can be executed/reused
 
 ```
 Defining a function is telling the function what it is supposed to do and the logic that it uses, and what to return.
-Calling a function is actually using that logic inside the definition to solve/do something with the arguments you provide it and giving it the info it needs to work.
+Calling a function is actually using that logic inside the function definition to solve/do something with the arguments you provide it and giving it the info it needs to work.
 ```
 
 ### B.2. Describe these data types.
@@ -242,7 +242,7 @@ Write a short description of the following data types:
 **_String_**
 
 ```
-Values that are text, Are inside either "", '', or ``.
+Values that are text. Are inside either "", '', or ``.
 ```
 
 **_Number_**
