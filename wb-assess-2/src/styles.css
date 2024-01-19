@@ -1,0 +1,32 @@
+* {
+    text-align: left;
+    font-family: sans-serif;
+    color: white;
+}
+
+body {
+    background: black;
+}
+
+label {
+    color: white;
+}
+
+div {
+    margin: 20px;
+}
+
+table {
+    color: white;
+    border: 1px solid white;
+    margin-top: 50px;
+}
+
+th, td {
+    padding: 5px;
+    border: 1px solid white;
+}
+
+button, select {
+    color: black;
+}
