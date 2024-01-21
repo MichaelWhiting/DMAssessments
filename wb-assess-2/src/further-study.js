@@ -32,7 +32,19 @@
 //   buildWordChain(['zoo', 'sour', 'racket', 'octos']);
 //   => ['zoo', 'octos', 'sour', 'racket']
 function buildWordChain(words) {
+    let sortedWords = [words[0]];
+
+    while (sortedWords.length < words.length) {
+        let lastItem = sortedWords[sortedWords.length - 1];
+        let lastLetter = lastItem[lastItem.length - 1];
+        let filteredArr = words.filter((word) => {
+            let firstLetter = word[0];
+            return firstLetter === lastLetter;
+        })
+        sortedWords.push(filteredArr[0]);
+    }
     
+    return sortedWords;
 }
 
 export { buildWordChain };
