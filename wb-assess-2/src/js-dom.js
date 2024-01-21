@@ -9,6 +9,15 @@
 // should switch from "Log Out" to "Log In".
 
 /// TODO: replace this with your code
+const logBtn = document.getElementById("auth");
+
+logBtn.addEventListener("click", () => {
+    if (logBtn.innerText === "Log in") {
+        logBtn.innerText = "Log out";
+    } else {
+        logBtn.innerText = "Log in";
+    }
+});
 
 // Send an alert
 //
@@ -18,6 +27,12 @@
 // text box. Then, they can submit the form to trigger the alert.
 
 /// TODO: replace this with your code
+const alertForm = document.querySelector("#send-alert");
+
+alertForm.addEventListener("submit", () => {
+    const sendAlertTxt = document.querySelector("#alert-message");
+    alert(sendAlertTxt.value);
+});
 
 // Add an item
 //
@@ -35,6 +50,14 @@
 //   </ol>
 
 /// TODO: replace this with your code
+const addItemBtn = document.querySelector("#item-adder");
+const orderedList = document.querySelector("#list");
+
+addItemBtn.addEventListener("click", () => {
+    let newItem = document.createElement("li");
+    newItem.innerText = "Item";
+    orderedList.append(newItem);
+});
 
 // Change colors
 //
@@ -46,6 +69,22 @@
 // Stuff Blue" should make text blue.
 
 /// TODO: replace this with your code
+const redBtn = document.getElementById("red");
+const blueBtn = document.getElementById("blue");
+
+const colorChangingItems = document.querySelectorAll(".changes-colors");
+
+redBtn.addEventListener("click", () => {
+    colorChangingItems.forEach((item) => {
+        item.style.color = "red";
+    })
+});
+
+blueBtn.addEventListener("click", () => {
+    colorChangingItems.forEach((item) => {
+        item.style.color = "blue";
+    })
+});
 
 // Calculate factorial
 //
@@ -63,6 +102,23 @@
 //   - puts the result of the function inside the "result" span
 
 /// TODO: replace this with your code
+const factorialForm = document.querySelector("#factorial-calculator");
+const numInput = document.querySelector("#factorial-input");
+const outputTxt = document.querySelector("#result");
+
+function factorial(num, total = 1) {
+    if (num === 0) {
+        return total
+    } else {
+        return factorial(num - 1, total * num);
+    }
+};
+
+factorialForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    outputTxt.innerText = factorial(numInput.value);
+});
+
 
 // Validate a form
 //
@@ -80,3 +136,17 @@
 // change the color of the text to red..
 
 /// TODO: replace this with your code
+const recommendWordForm = document.querySelector("#recommend-word");
+const inputWord = document.querySelector("#word");
+const feedbackTxt = document.querySelector(".form-feedback");
+
+recommendWordForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    if (inputWord.value.length > 3) {
+        feedbackTxt.innerHTML = "Thanks for your submission!";
+        feedbackTxt.style.color = "green";
+    } else {
+        feedbackTxt.innerText = "The word must be at least 4 characters long.";
+        feedbackTxt.style.color = "red";
+    }
+});
