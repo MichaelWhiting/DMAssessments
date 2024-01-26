@@ -3,10 +3,14 @@ const mainMovieDisplay = document.querySelector("#movieDisplay");
 // Create functions to create the movie cards
 const createMovieCard = (movieObj) => {
     const newMovieCard = document.createElement("section");
-    newMovieCard.className = "movieCard";
+    newMovieCard.className = "movie-card";
     newMovieCard.innerHTML = `
-        <img src="${movieObj.movieImg}"/>
-        <h3>${movieObj.movieName}</h3>
+        <img src="${movieObj.picture}"/>
+        <h3>${movieObj.name}</h3>
+
+        <br/>
+
+        <button onclick="deleteMovie(${movieObj.id})">Delete Me</button>
     `;
 
     mainMovieDisplay.appendChild(newMovieCard);
@@ -14,7 +18,7 @@ const createMovieCard = (movieObj) => {
 
 const createAllMovieCards = (moviesArr) => {
     moviesArr.forEach((movie) => {
-        createMovieCard({ movieName: movie.name, movieImg: movie.picture });
+        createMovieCard(movie);
     });
 }
 
@@ -41,6 +45,13 @@ const handleSubmit = (evt) => {
     movieImg.value = "";
     
     axios.post('/addMovie', newMovieObj).then((res) => {
+        createAllMovieCards(res.data.allMovies);
+    });
+}
+
+const deleteMovie = (id) => {
+    axios.delete(`/deleteMovie/${id}`).then((res) => {
+        mainMovieDisplay.innerHTML = "";
         createAllMovieCards(res.data.allMovies);
     });
 }
