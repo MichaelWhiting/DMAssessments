@@ -10,8 +10,10 @@ const createMovieCard = (movieObj) => {
 
         <section>
             <button onclick="updateMovie(${movieObj.id}, 'downvote')">-</button>
-            Popularity: ${movieObj.votes}
+            Rating:
             <button onclick="updateMovie(${movieObj.id}, 'upvote')">+</button>
+            <br/>
+            <p id="rating">${movieObj.votes} / 10</p>
         </section>
         <br/>
 

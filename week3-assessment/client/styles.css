@@ -34,3 +34,7 @@ form {
 section {
   margin: 20px;
 }
+
+#rating {
+    font-weight: bold;
+}
