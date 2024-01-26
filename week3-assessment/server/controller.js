@@ -45,6 +45,26 @@ const handlerFunctions = {
             message: "Movie has been deleted",
             allMovies: movies
         });
+    },
+
+    updateMovie: (req, res) => {
+        const movieId = req.params.id;
+        const voteType = req.body.voteType;
+
+        for (let i = 0; i < movies.length; i++) {
+            if (movies[i].id === +movieId) {
+                if (voteType === "upvote") {
+                    movies[i].votes += 1
+                } else if (voteType === "downvote") {
+                    movies[i].votes -= 1
+                }
+            }
+        }
+
+        res.send({
+            message: "Updated the vote counter",
+            allMovies: movies
+        })
     }
 };
 

@@ -24,6 +24,7 @@ import handlerFunctions from "./controller.js";
 app.get('/movies', handlerFunctions.displayMovies);
 app.post('/addMovie', handlerFunctions.addMovie);
 app.delete('/deleteMovie/:id', handlerFunctions.deleteMovie);
+app.put('/updateMovie/:id', handlerFunctions.updateMovie);
 
 // Starting up the server
 app.listen("8887", () => {

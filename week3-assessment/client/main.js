@@ -8,6 +8,11 @@ const createMovieCard = (movieObj) => {
         <img src="${movieObj.picture}"/>
         <h3>${movieObj.name}</h3>
 
+        <section>
+            <button onclick="updateMovie(${movieObj.id}, 'downvote')">-</button>
+            Popularity: ${movieObj.votes}
+            <button onclick="updateMovie(${movieObj.id}, 'upvote')">+</button>
+        </section>
         <br/>
 
         <button onclick="deleteMovie(${movieObj.id})">Delete Me</button>
@@ -36,8 +41,8 @@ const handleSubmit = (evt) => {
     const movieImg = document.getElementById("movieImg");
 
     const newMovieObj = {
-        movieName: movieName.value,
-        movieImg: movieImg.value
+        "movieName": movieName.value,
+        "movieImg": movieImg.value
     }
 
     mainMovieDisplay.innerHTML = "";
@@ -51,6 +56,13 @@ const handleSubmit = (evt) => {
 
 const deleteMovie = (id) => {
     axios.delete(`/deleteMovie/${id}`).then((res) => {
+        mainMovieDisplay.innerHTML = "";
+        createAllMovieCards(res.data.allMovies);
+    });
+}
+
+const updateMovie = (id, type) => {
+    axios.put(`/updateMovie/${id}`, { "voteType": type}).then((res) => {
         mainMovieDisplay.innerHTML = "";
         createAllMovieCards(res.data.allMovies);
     });
