@@ -87,7 +87,7 @@ button:focus-visible {
   border: 1px solid white;
   padding: 20px;
   vertical-align: top;
-  height: 540px;
+  height: auto;
   width: 280px;
 }
 
@@ -96,10 +96,39 @@ button:focus-visible {
 }
 
 input, textarea {
-  float: left;
-  margin: 10px;
+  /* float: left; */
+  margin-bottom: 20px;
 }
 
 h3 {
   text-decoration: underline;
+}
+
+p {
+  word-wrap: break-word;
+}
+
+#delete-img {
+  height: 20px;
+  width: 20px;
+}
+
+#delete-btn {
+  background: rgb(168, 0, 0);
+  margin: 0px 5px;
+}
+
+#edit-img {
+  height: 20px;
+  width: 20px;
+}
+
+#edit-btn {
+  background: rgb(18, 129, 18);
+  margin: 0px 5px;
+}
+
+.star-img {
+  height: 40px;
+  width: 40px;
 }

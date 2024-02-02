@@ -1,11 +1,10 @@
 # Component Hierarchy
 
-- Movie Table
-    - MovieTableHeader
+- AllMovies
     - MovieCell
-        - MovieImgCell
         - MovieTitleCell
+        - MovieImgCell
         - MovieDescription
-        - Movie
-            -ModeButtons
+        - MovieRating
+        - ModeButtons
     - AddMovieButton

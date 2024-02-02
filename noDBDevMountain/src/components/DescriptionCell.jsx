@@ -4,6 +4,7 @@ function DescriptionCell({isEditing, description, setDescription}) {
     return isEditing ? (
         <>
             <br/>
+            <p>Description: </p>
             <textarea
                 value={description} 
                 placeholder="Description"
