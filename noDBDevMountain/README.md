@@ -7,7 +7,7 @@ Movie json is going to be structured like this:
 {
     id: 0,
     title: "Revenge of the Sith",
-    img: "img.jpeg",
+    img: "img.jpg",
     description: "The third movie in the Star Wars saga",
     rating: 5
 }

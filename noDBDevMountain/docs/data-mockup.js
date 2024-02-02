@@ -1,5 +1,7 @@
 // this is the "database"
 
+
+// keeps this a constant while importing into the controller file, so I just put the data into the controller file instead.
 let movies = [
     {
         id: 0,

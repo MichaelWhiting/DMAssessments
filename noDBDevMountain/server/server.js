@@ -14,7 +14,9 @@ app.use(express.static("public"));
 
 // ROUTES/ENDPOINTS
 app.get("/allMovies", handlerFunctions.getAllMovies);
-
+app.post("/movies/add", handlerFunctions.addMovie);
+app.put("/movies/update", handlerFunctions.updateMovie);
+app.delete("/movies/delete/:id", handlerFunctions.deleteMovie);
 
 // Starting up the server
 const port = 9997;

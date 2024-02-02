@@ -1,8 +1,8 @@
-function ModeButtons({isEditing, toggleEditing, deleteMovie}) {
+function ModeButtons({isEditing, toggleEditing, deleteMovie, updateMovie}) {
     return isEditing ? (
         <>
             <br/>
-            <button onClick={toggleEditing}>Save</button>
+            <button onClick={updateMovie}>Save</button>
         </>
     ) : (
         <>

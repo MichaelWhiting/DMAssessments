@@ -4,17 +4,25 @@ import DescriptionCell from "./DescriptionCell";
 import TitleCell from "./TitleCell";
 import ImgCell from "./ImgCell";
 import RatingCell from "./RatingCell";
+import axios from "axios";
 
 function MovieCell({ movieData, deleteMovie }) {
-    const [isEditing, setIsEditing] = useState(false)
+    const [isEditing, setIsEditing] = useState(false);
 
-    const [title, setTitle] = useState(movieData.title)
-    const [img, setImg] = useState(movieData.img)
-    const [description, setDescription] = useState(movieData.description)
-    const [rating, setRating] = useState(movieData.rating)
+    const [title, setTitle] = useState(movieData.title);
+    const [img, setImg] = useState(movieData.img);
+    const [description, setDescription] = useState(movieData.description);
+    const [rating, setRating] = useState(movieData.rating);
 
     const toggleEditing = () => {
         setIsEditing(!isEditing);
+    }
+
+    const updateMovie = () => {
+        axios.put("/movies/update", {id: movieData.id, title, img, description, rating}).then((res) => {
+            const updatedMovie = res.data.updatedMovie;
+            setIsEditing(false);
+        })
     }
 
     return (
@@ -23,7 +31,7 @@ function MovieCell({ movieData, deleteMovie }) {
             <ImgCell isEditing={isEditing} img={img} setImg={setImg}/>
             <DescriptionCell isEditing={isEditing} description={description} setDescription={setDescription}/>
             <RatingCell isEditing={isEditing} rating={rating} setRating={setRating}/>
-            <ModeButtons isEditing={isEditing} toggleEditing={toggleEditing} deleteMovie={deleteMovie}/>
+            <ModeButtons isEditing={isEditing} toggleEditing={toggleEditing} deleteMovie={deleteMovie} updateMovie={updateMovie}/>
         </div>
     )
 }

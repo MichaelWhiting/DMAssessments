@@ -1,5 +1,6 @@
 import { useState } from "react";
 import MovieCell from "./MovieCell";
+import axios from "axios";
 
 let globalId = 4;
 
@@ -15,24 +16,19 @@ function AllMovies({ initialMovies }) {
        />
       )
   });
-
+  
   const addMovie = () => {
-    const newMovieObj = {
-      id: globalId,
-      title: "",
-      img: "",
-      description: "",
-      rating: 0
-    }
-
-    globalId++;
-    setCurrentData([...currentData, newMovieObj]);
+    axios.post("/movies/add").then((res) => {
+      const newMovie = res.data.newMovie;
+      setCurrentData([...currentData, newMovie]);
+    })
   }
 
   const deleteMovie = (id) => {
-    let filteredMovies = currentData.filter((movie) => movie.id !== id);
-    console.log(filteredMovies)
-    setCurrentData(filteredMovies);
+    axios.delete(`/movies/delete/${id}`).then((res) => {
+      const filteredMovies = res.data.filteredMovies;
+      setCurrentData(filteredMovies);
+    })
   };
   
   return (
