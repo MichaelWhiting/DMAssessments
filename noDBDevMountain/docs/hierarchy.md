@@ -2,9 +2,9 @@
 
 - AllMovies
     - MovieCell
-        - MovieTitleCell
-        - MovieImgCell
-        - MovieDescription
-        - MovieRating
+        - TitleCell
+        - ImgCell
+        - DescriptionCell
+        - RatingCell
         - ModeButtons
     - AddMovieButton
