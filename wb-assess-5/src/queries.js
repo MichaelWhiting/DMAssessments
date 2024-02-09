@@ -85,7 +85,7 @@ export async function printHumansAndAnimals() {
 }
 
 
-// printHumansAndAnimals();
+printHumansAndAnimals();
 
 // Return a Set containing the full names of all humans
 // with animals of the given species.
@@ -98,6 +98,7 @@ export async function getHumansByAnimalSpecies(species) {
         }
     });
 
+    // when returning in the forEach, it was returning to the forEach callback instead of the getHumansByAnimalSpecies();
     // animals.forEach(async (animal, i) => {
     //     const human = await Human.findByPk(animal.humanId); // gets the human tied to that animal
     //     humans.add(human.getFullName()); // adds the first name
@@ -112,16 +113,11 @@ export async function getHumansByAnimalSpecies(species) {
         humans.add(human.getFullName()); // adds the first name
     
         if (i === animals.length - 1) {
-            // console.log("Log: ", humans);
-            return humans
+            return humans;
         }
     }
 
-    return humans; // if theres no humands found connected to that animal it will just return a blank set.
+    return humans; // if theres no humans found connected to that animal it will just return a blank set.
 }
 
-console.log(await getHumansByAnimalSpecies('frog'));
-
-
-// Close db
-// await db.close();
+// console.log(await getHumansByAnimalSpecies('frog'));
